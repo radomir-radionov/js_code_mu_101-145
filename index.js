@@ -1,69 +1,217 @@
 // js_code_mu_101-145
 
-// 101 Массив с анонимными функциями в JavaScript
+// Время
 
-// Задача 101.1
-// Сделайте массив arr с тремя функциями. Пусть первая возвращает через return число 1, вторая - число 2, третья - число 3.
-// let arr = [
-//   function () {
-//     return 1;
-//   },
-//   function () {
-//     return 2;
-//   },
-//   function () {
-//     return 3;
-//   },
-// ];
-// console.log(arr[0]());
-// console.log(arr[1]());
-// console.log(arr[2]());
-// console.log(arr[0]() + arr[1]() + arr[2]());
+// 131 Работа с объектом Date в JavaScript
 
-// Задача 101.2
-// Используя созданный вами массив arr выведите на экран число 3, вызвав соответствующую функцию.
+// let date = new Date();
+// console.log(date.getFullYear()); // год
+// console.log(date.getMonth());    // месяц
+// console.log(date.getDate());     // день
+// console.log(date.getHours());    // часы
+// console.log(date.getMinutes());  // минуты
+// console.log(date.getSeconds());  // секунды
 
-// Задача 101.3
-// Используя созданный вами массив arr найдите сумму результатов функций (без цикла).
-// const sum = [1, 2, 3].reduce((partial_sum, a) => partial_sum + a,0);
-// console.log(sum); // 6
+// Задача 131.1 -  131.3
+// Выведите на экран текущий день.
+// let date = new Date();
+// console.log(date.getDate());
+// console.log(date.getMonth());
+// console.log(date.getFullYear());
 
-// Задача 101.4
-// Переберите созданный вами массив arr циклом и выведите результаты работы всех функций на экран.
-// arr.forEach(function (i) {
-//   console.log(i());
-// });
+// 132 Форматирование даты в JavaScript
 
-// 102 Объект с анонимными функциями в JavaScript
-
-// Задача 102.1
-// Сделайте объект с тремя функциями. Пусть первая возвращает через return число 1, вторая - число 2, третья - число 3.
-//  С помощью созданных функций выведите на экран сумму возвращаемых чисел.
-// let obj = {
-//   func1: function () {
-//     return 1;
-//   },
-//   func2: function () {
-//     return 2;
-//   },
-//   func3: function () {
-//     return 3;
-//   },
-// };
-// const sum = [1, 2, 3].reduce((partial_sum, a) => partial_sum + a, 0);
-// console.log(sum); // 6
-
-// Задача 102.2
-// Переберите созданный объект циклом и выведите результаты работы функций на экран.
-// for (key in obj) {
-//   console.log(obj[key]());
+// function addZero(num) {
+//   if (num >= 0 && num <= 9) {
+//     return "0" + num;
+//   } else {
+//     return num;
+//   }
 // }
+// let date = new Date();
+// console.log(
+//   addZero(date.getFullYear()) +
+//     "-" +
+//     addZero(date.getMonth() + 1) +
+//     "-" +
+//     addZero(date.getDate())
+// );
 
-// Задача 102.3
-// Сделайте объект с тремя функциями, каждая из которых будет принимать параметром массив с числами.
-// Сделайте так, чтобы первая функция возвращала сумму элементов массива, вторая функция - сумму квадратов, а третья - сумму кубов.
+// Задача 132.1
+// Выведите на экран текущую дату-время в формате '12:59:59 31.12.2014'. Используйте
+// для всех частей даты (кроме года) созданную нами функцию для добавления нуля при необходимости
 
-// let math = {
-// 	square: function(num) {return num * num},
-// 	cube: function(num) {return num * num * num},
+// let date = new Date();
+// function addZero(num) {
+//   if (num >= 0 && num <= 9) {
+//     return "0" + num;
+//   } else {
+//     return num;
+//   }
+// }
+// console.log(
+//   addZero(date.getHours()) +
+//     ":" +
+//     addZero(date.getMinutes()) +
+//     ":" +
+//     addZero(date.getSeconds()) +
+//     " " +
+//     addZero(date.getDate()) +
+//     "." +
+//     addZero(date.getMonth()) +
+//     "." +
+//     date.getFullYear()
+// );
+
+// Задача 132.2
+// Дана дата в формате год-месяц-день. Преобразуйте эту дату в формат день.месяц.год.
+// let str = "2025-12-31";
+// let result = str.split("-").reverse().join("/");
+// console.log(result);
+
+// 133 Получения дня недели на JavaScript
+
+// Задача 133.1
+// Выведите на экран номер текущего дня недели.
+// let date = new Date();
+// console.log(date.getDay());
+
+// Задача 133.2
+// Определите, является ли текущий день недели выходным или рабочим днем.
+// let date = new Date();
+// let day = date.getDay();
+// const currentDay = () => {
+//   if (day === 0 || day === 6) {
+//     console.log(day + " Выходной");
+//   } else {
+//     console.log(day + " Рабочий");
+//   }
 // };
+// currentDay(date.getDay());
+
+// Задача 133.3
+// Определите сколько дней осталось до ближайшего воскресенья.
+// let date = new Date();
+// let day = date.getDay();
+// let weekend = 5 - day;
+// if (weekend === 0 || weekend === -1) {
+//   console.log("выходные");
+// }
+// console.log("Осталось " + weekend + " Дней");
+
+// 134 Вывод частей даты словом в JavaScript
+
+// let date = new Date();
+// let day = date.getDay();
+// let days = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
+// console.log(days[day]);
+
+// Задача 134.1
+// Пусть дан следующий массив:
+// Выведите с помощью этого массива название текущего месяца.
+// let months = [
+//   "янв",
+//   "фев",
+//   "мар",
+//   "апр",
+//   "май",
+//   "июн",
+//   "июл",
+//   "авг",
+//   "сен",
+//   "окт",
+//   "ноя",
+//   "дек",
+// ];
+// let date = new Date();
+// let day = date.getMonth();
+// console.log(months[day]);
+
+// 135 Установка времени в объекте Date в JavaScript
+
+// let date = new Date(2025, 10, 5); // установим 5 ноября 2025 года
+// let day = date.getDay();
+// let days = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
+// console.log(days[day]);
+
+// Задача 135.1
+// Узнайте, какой день недели был в ваш день рождения.
+// let date = new Date(1998, 11, 26);
+// let day = date.getDay();
+// let days = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
+// console.log(days[day]);
+
+// 136 Работа с getTime
+
+// let date = new Date();
+// console.log(date.getTime());
+
+// Задача 136.1
+// Выведите на экран timestamp, соответствующий дате 1 января 2025 года.
+// let date = new Date(2025, 0, 1);
+// console.log(date.getTime());
+
+// Задача 136.2
+// Выведите на экран количество дней, прошедшее между 1 марта 1988 года и 10 января 2000 года.
+// let now = new Date(2000, 1, 10);
+// let date = new Date(1988, 2, 1);
+// let diff = now.getTime() - date.getTime();
+// console.log(diff / (1000 * 60 * 60 * 24));
+
+// 137 Разница между объектами с датой в JavaScript
+
+// let now  = new Date();
+// let date = new Date(2015, 4, 25, 12, 59, 59);
+// let diff = now - date; // вычитаем два объекта с датами друг от друга
+// console.log(diff);     // увидим разницу в миллисекундах
+
+// Задача 137.1 - 137.4
+// Выведите на экран количество миллисекунд, прошедшее между 1 сентября 2000 года и 15 февраля 2010 года.
+// let now = new Date(2010, 1, 15);
+// let date = new Date(2000, 8, 1);
+// let diff = now - date; // вычитаем два объекта с датами друг от друга
+// console.log(diff); // увидим разницу в миллисекундах
+// console.log(diff / (1000 * 60 * 60 * 24)); // увидим разницу в днях
+// console.log(diff / (1000 * 60 * 60 * 24 * 30)); // увидим разницу в месяцах
+// console.log(diff / (1000 * 60 * 60 * 24 * 30 * 12)); // увидим разницу в годах
+
+// 140 Проверка корректности даты в JavaScript
+
+// Задача 140.1
+// Сделайте функцию checkDate, которая будет выполнять описанную проверку.
+// Пусть функция возвращает true, если дата корректна и false, если нет.
+// Пример работы этой функции для 31 января и 32 января:
+// console.log(checkDate(2025, 0, 31)); // выведет true
+// console.log(checkDate(2025, 0, 32)); // выведет false
+// let year = 2025;
+// let month = 0;
+// let day = 1;
+// let date = new Date(year, month, day);
+// let checkDate = () => {
+//   if (
+//     date.getFullYear() === year &&
+//     date.getMonth() === month &&
+//     date.getDate() === day
+//   ) {
+//     console.log("true");
+//   } else {
+//     console.log("false");
+//   }
+// };
+// checkDate(date);
+
+// 143 Строковое сравнение дат на JavaScript
+
+// Задача 143.1
+// Напишите код, который сравнит две приведенные ниже даты и выведет сообщение о том, какая из них больше:
+// let date1 = "2020-11-31";
+// let date2 = "2020-12-01";
+// console.log(date1 > date2); // выведет true
+
+// Задача 143.2
+// Напишите код, который сравнит две приведенные ниже даты и выведет сообщение о том, какая из них больше:
+// let date1 = "09-21";
+// let date2 = "09-23";
+// console.log(date1 > date2);
+
+// 144 Сравнение объектов с датами в JavaScript
